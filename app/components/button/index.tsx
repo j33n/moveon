@@ -1,7 +1,8 @@
+import { ReactNode } from "react";
 import * as styles from "./button.css";
 
-import { Button as Btn } from "@ariakit/react";
+import { Button as Btn } from "@radix-ui/themes";
 
-export default function Button() {
-  return <Btn className={styles.button}>Button</Btn>;
+export default function Button({ children }: { children: ReactNode }) {
+  return <Btn className={styles.button}>{children}</Btn>;
 }

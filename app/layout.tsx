@@ -1,6 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Theme } from "@radix-ui/themes";
+
+import "@radix-ui/themes/styles.css";
 
 import cx from "classnames";
 
@@ -20,7 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={(cx(inter.className), styles.body)}>{children}</body>
+      <body className={(cx(inter.className), styles.body)}>
+        <Theme>{children}</Theme>
+      </body>
     </html>
   );
 }
