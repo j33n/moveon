@@ -172,7 +172,6 @@ export const nav = style({
   "@media": {
     "only screen and (max-width: 48em)": {
       display: "none",
-      background: "red"
     },
   },
 });
@@ -182,6 +181,12 @@ export const navMobile = style({
   width: "70%",
   justifyContent: "end",
   paddingRight: "2rem",
+
+  "@media": {
+    "only screen and (min-width: 48em)": {
+      display: "none",
+    },
+  },
 });
 
 export const popoverTrigger = style({
@@ -190,7 +195,7 @@ export const popoverTrigger = style({
   alignItems: "center",
   height: "3rem",
   width: "3rem",
-  borderRadius: "4px"
+  borderRadius: "4px",
 });
 
 export const popoverContent = style({
@@ -200,7 +205,22 @@ export const popoverContent = style({
   background: "#fff",
   fontFamily: "inherit",
   borderRadius: "4px",
-  padding: "1rem"
+  padding: "1rem",
+  rowGap: "1rem",
+
+  "@media": {
+    "only screen and (min-width: 48em)": {
+      display: "none",
+    },
+  },
+});
+
+export const mobileLink = style({
+  width: "100%",
+  fontFamily: "inherit",
+  padding: "0.5rem",
+  fontSize: "12px",
+  borderRadius: "4px"
 });
 
 export const mobileMenuTrigger = style({

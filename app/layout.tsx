@@ -4,10 +4,10 @@ import { Inter } from "next/font/google";
 import { Theme } from "@radix-ui/themes";
 
 import "@radix-ui/themes/styles.css";
-
 import cx from "classnames";
 
 import * as styles from "./styles/index.css";
+import { Header } from "./components";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,7 +24,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={(cx(inter.className), styles.body)}>
-        <Theme>{children}</Theme>
+        <Theme>
+          <main className={styles.main}>
+            <Header />
+            <div className={styles.content}>{children}</div>
+          </main>
+        </Theme>
       </body>
     </html>
   );
