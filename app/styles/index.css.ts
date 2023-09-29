@@ -196,6 +196,7 @@ export const popoverTrigger = style({
   height: "3rem",
   width: "3rem",
   borderRadius: "4px",
+  border: "none",
 });
 
 export const popoverContent = style({

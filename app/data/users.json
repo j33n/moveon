@@ -1,0 +1,112 @@
+[
+    {
+        "id": "1",
+        "firstName": "Jean-Paul",
+        "lastName": "Nkurunziza",
+        "phone": "250780312345",
+        "address": "KN 23 St 21",
+        "email": "jeanpaul.nkurunziza@email.com",
+        "IDNumber": "1199000100000001",
+        "businesses": [],
+        "applications": []
+    },
+    {
+        "id": "2",
+        "firstName": "Marie",
+        "lastName": "Uwimana",
+        "phone": "250720312346",
+        "address": "KG 12 St 45",
+        "email": "marie.uwimana@email.com",
+        "IDNumber": "1199000100000002",
+        "businesses": [],
+        "applications": []
+    },
+    {
+        "id": "3",
+        "firstName": "Pascal",
+        "lastName": "Mugisha",
+        "phone": "250781312347",
+        "address": "KK 45 St 34",
+        "email": "pascal.mugisha@email.com",
+        "IDNumber": "1199000100000003",
+        "businesses": [],
+        "applications": []
+    },
+    {
+        "id": "4",
+        "firstName": "Felicite",
+        "lastName": "Ingabire",
+        "phone": "25080312348",
+        "address": "KN 56 St 78",
+        "email": "felicite.ingabire@email.com",
+        "IDNumber": "1199000100000004",
+        "businesses": [],
+        "applications": []
+    },
+    {
+        "id": "5",
+        "firstName": "Didier",
+        "lastName": "Hakizimana",
+        "phone": "250782312349",
+        "address": "KG 67 St 12",
+        "email": "didier.hakizimana@email.com",
+        "IDNumber": "1199000100000005",
+        "businesses": [],
+        "applications": []
+    },
+    {
+        "id": "6",
+        "firstName": "Aline",
+        "lastName": "Mukamana",
+        "phone": "25072000000",
+        "address": "KK 78 St 56",
+        "email": "aline.mukamana@email.com",
+        "IDNumber": "1199000100000006",
+        "businesses": [],
+        "applications": []
+    },
+    {
+        "id": "7",
+        "firstName": "Emmanuel",
+        "lastName": "Ndayisaba",
+        "phone": "250720312351",
+        "address": "KN 89 St 23",
+        "email": "emmanuel.ndayisaba@email.com",
+        "IDNumber": "1199000100000007",
+        "businesses": [],
+        "applications": []
+    },
+    {
+        "id": "8",
+        "firstName": "Claudine",
+        "lastName": "Mutesi",
+        "phone": "250720312352",
+        "address": "KG 90 St 67",
+        "email": "claudine.mutesi@email.com",
+        "IDNumber": "1199000100000008",
+        "businesses": [],
+        "applications": []
+    },
+    {
+        "id": "9",
+        "firstName": "Olivier",
+        "lastName": "Uwizeyimana",
+        "phone": "250720312353",
+        "address": "KK 91 St 89",
+        "email": "olivier.uwizeyimana@email.com",
+        "IDNumber": "1199000100000009",
+        "businesses": [],
+        "applications": []
+    },
+    {
+        "id": "10",
+        "firstName": "Josiane",
+        "lastName": "Mukashyaka",
+        "phone": "250720312354",
+        "address": "KN 92 St 12",
+        "email": "josiane.mukashyaka@email.com",
+        "IDNumber": "1199000100000010",
+        "businesses": [],
+        "applications": []
+    }
+]

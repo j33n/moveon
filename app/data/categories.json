@@ -1,0 +1,57 @@
+[
+    {
+        "id": "1",
+        "name": "Restaurants and Cafes",
+        "description": "Establishments that prepare and serve food and beverages to customers."
+    },
+    {
+        "id": "2",
+        "name": "Retail and Shopping",
+        "description": "Businesses that sell goods directly to consumers."
+    },
+    {
+        "id": "3",
+        "name": "Health and Wellness",
+        "description": "Organizations that provide health-related services, including clinics, gyms, and spas."
+    },
+    {
+        "id": "4",
+        "name": "Arts and Entertainment",
+        "description": "Venues and entities promoting arts, movies, music, and other forms of entertainment."
+    },
+    {
+        "id": "5",
+        "name": "Professional Services",
+        "description": "Businesses offering specialized services such as law, accounting, and consultancy."
+    },
+    {
+        "id": "6",
+        "name": "Construction and Real Estate",
+        "description": "Companies involved in building infrastructure and those dealing in properties."
+    },
+    {
+        "id": "7",
+        "name": "Education and Training",
+        "description": "Institutions and platforms offering educational courses, training, and resources."
+    },
+    {
+        "id": "8",
+        "name": "Travel and Tourism",
+        "description": "Agencies, accommodations, and attractions catering to travelers and tourists."
+    },
+    {
+        "id": "9",
+        "name": "Technology and Software",
+        "description": "Businesses involved in creating tech solutions, software products, and related services."
+    },
+    {
+        "id": "10",
+        "name": "Automotive",
+        "description": "Companies related to the design, manufacturing, and selling of motor vehicles."
+    },
+    {
+        "id": "2",
+        "name": "Fashion",
+        "description": "Modern wear for men and women"
+    },
+]

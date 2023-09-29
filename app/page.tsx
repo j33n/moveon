@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import * as styles from "./styles/index.css";
 import { Button, Flex, Heading, Text } from "@radix-ui/themes";
 
@@ -34,9 +35,11 @@ export default function Home() {
         </Text>
       </div>
       <Flex direction="column" gap="2" className={styles.buttonContainer}>
-        <Button className={styles.joinButton} color="yellow" variant="solid">
-          Join Today
-        </Button>
+        <Link href="/apply">
+          <Button className={styles.joinButton} color="yellow" variant="solid">
+            Join Today
+          </Button>
+        </Link>
       </Flex>
     </>
   );
