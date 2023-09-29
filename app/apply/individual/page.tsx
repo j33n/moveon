@@ -1,57 +1,159 @@
 "use client";
 
 import React from "react";
+import cx from "classnames";
 import * as Form from "@radix-ui/react-form";
 
 import * as styles from "./styles.css";
-import { Card } from "@radix-ui/themes";
+import * as formStyles from "../../components/form/formStyles.css";
+import { Button, Card } from "@radix-ui/themes";
 
 export default function IndividualApplication() {
   return (
     <Card className={styles.container}>
-      <Form.Root className={styles.formRoot}>
-        <Form.Field className={styles.formField} name="email">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-            }}
+      <Form.Root className={formStyles.formRoot}>
+        <div className={styles.formContainer}>
+          <Form.Field
+            className={cx(formStyles.formField, styles.formField)}
+            name="firstName"
           >
-            <Form.Label className={styles.formLabel}>Email</Form.Label>
-            <Form.Message className={styles.formMessage} match="valueMissing">
-              Please enter your email
-            </Form.Message>
-            <Form.Message className={styles.formMessage} match="typeMismatch">
-              Please provide a valid email
-            </Form.Message>
-          </div>
-          <Form.Control asChild>
-            <input className={styles.input} type="email" required />
-          </Form.Control>
-        </Form.Field>
-        <Form.Field className={styles.formField} name="question">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "baseline",
-              justifyContent: "space-between",
-            }}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                justifyContent: "space-between",
+              }}
+            >
+              <Form.Label className={formStyles.formLabel}>
+                First Name:
+              </Form.Label>
+            </div>
+            <Form.Control asChild>
+              <input className={formStyles.input} type="firstName" required />
+            </Form.Control>
+            <div>
+              <Form.Message
+                className={formStyles.formMessage}
+                match="valueMissing"
+              >
+                Please enter your first name
+              </Form.Message>
+              <Form.Message
+                className={formStyles.formMessage}
+                match="typeMismatch"
+              >
+                Please provide a first name
+              </Form.Message>
+            </div>
+          </Form.Field>
+          <Form.Field
+            className={cx(formStyles.formField, styles.formField)}
+            name="lastName"
           >
-            <Form.Label className={styles.formLabel}>Question</Form.Label>
-            <Form.Message className={styles.formMessage} match="valueMissing">
-              Please enter a question
-            </Form.Message>
-          </div>
-          <Form.Control asChild>
-            <textarea className={styles.textarea} required />
-          </Form.Control>
-        </Form.Field>
-        <Form.Submit asChild>
-          <button className={styles.button} style={{ marginTop: 10 }}>
-            Post question
-          </button>
-        </Form.Submit>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                justifyContent: "space-between",
+              }}
+            >
+              <Form.Label className={formStyles.formLabel}>
+                Last Name:
+              </Form.Label>
+            </div>
+            <Form.Control asChild>
+              <input className={formStyles.input} type="firstName" required />
+            </Form.Control>
+            <div>
+              <Form.Message
+                className={formStyles.formMessage}
+                match="valueMissing"
+              >
+                Please enter your first name
+              </Form.Message>
+              <Form.Message
+                className={formStyles.formMessage}
+                match="typeMismatch"
+              >
+                Please provide a first name
+              </Form.Message>
+            </div>
+          </Form.Field>
+          <Form.Field
+            className={cx(formStyles.formField, styles.formField)}
+            name="phone"
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                justifyContent: "space-between",
+              }}
+            >
+              <Form.Label className={formStyles.formLabel}>Phone:</Form.Label>
+            </div>
+            <Form.Control asChild>
+              <input className={formStyles.input} type="firstName" required />
+            </Form.Control>
+            <div>
+              <Form.Message
+                className={formStyles.formMessage}
+                match="valueMissing"
+              >
+                Please enter your phone number
+              </Form.Message>
+              <Form.Message
+                className={formStyles.formMessage}
+                match="typeMismatch"
+              >
+                Please provide a valid Phone number
+              </Form.Message>
+            </div>
+          </Form.Field>
+          <Form.Field
+            className={cx(formStyles.formField, styles.formField)}
+            name="address"
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                justifyContent: "space-between",
+              }}
+            >
+              <Form.Label className={formStyles.formLabel}>Address:</Form.Label>
+            </div>
+            <Form.Control asChild>
+              <input className={formStyles.input} type="address" required />
+            </Form.Control>
+            <div>
+              <Form.Message
+                className={formStyles.formMessage}
+                match="valueMissing"
+              >
+                Please enter your address
+              </Form.Message>
+              <Form.Message
+                className={formStyles.formMessage}
+                match="typeMismatch"
+              >
+                Please provide a valid address
+              </Form.Message>
+            </div>
+          </Form.Field>
+        </div>
+        <div style={{ width: "100%", display: "flex", justifyContent: "end" }}>
+          <Form.Submit asChild>
+            <Button
+              size="4"
+              className={formStyles.button}
+              style={{ marginTop: 10, border: "1px solid gray" }}
+              color="yellow"
+            >
+              Register
+            </Button>
+          </Form.Submit>
+        </div>
       </Form.Root>
     </Card>
   );

@@ -12,7 +12,9 @@ export default function IndividualApplicationLayout({
 }) {
   return (
     <div className={styles.container}>
-      <Heading>Individual Application</Heading>
+      <Heading size="3" my="4">
+        Individual Application
+      </Heading>
       {children}
     </div>
   );
