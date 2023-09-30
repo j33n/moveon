@@ -43,3 +43,9 @@ export const textarea = style({
   minHeight: "4rem",
   padding: "0.5rem",
 });
+
+export const labelContainer = style({
+  display: "flex",
+  alignItems: "baseline",
+  justifyContent: "space-between",
+});

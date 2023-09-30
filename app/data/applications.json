@@ -1,13 +1,12 @@
 [
     {
-        "applicationId": "",
-        "businessName": "",
-        "businessType": "",
-        "description": "",
-        "ownerFirstName": "",
-        "ownerLastName": "",
-        "assignedMomoCode": "",
-        "ownerId": "",
-        "businessId": ""
+        "applicationId": "1",
+        "businessName": "Kigali Bistro",
+        "businessType": "Individual",
+        "ownerFirstName": "Jean Paul",
+        "ownerLastName": "Nkurunziza",
+        "assignedMomoCode": "234567",
+        "ownerId": "1",
+        "businessId": "1"
     }
 ]
