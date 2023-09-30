@@ -9,8 +9,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as styles from "./styles.css";
 import * as formStyles from "../../components/form/formStyles.css";
 import { Button, Card } from "@radix-ui/themes";
-import { useForm } from "react-hook-form";
-// import { ErrorMessage } from "@hookform/error-message";
+import { useForm, Controller } from "react-hook-form";
 
 export const ErrorMessage = ({ message }: { message: any }) => {
   if (!message) {
@@ -31,9 +30,14 @@ export type FormData = {
   IDNumber: string;
 };
 
-interface FormInputs {
-  multipleErrorInput: string;
-}
+const err = {
+  firstNameError: "First name is required",
+  lastNameError: "Last name is required",
+  addressError: "Address is required",
+  idNumberError: "Identification number is required",
+  phoneError: "Phone is required",
+  emailError: "Email is required",
+};
 
 export default function IndividualApplication() {
   const onPhoneFillComplete = () => {};
@@ -41,20 +45,46 @@ export default function IndividualApplication() {
 
   const formSchema = z
     .object({
-      phone: z.string({
-        required_error: "Phone is required",
-        invalid_type_error: "Phone number is not valid",
-      }),
-      firstName: z.string(),
-      lastName: z.string(),
-      address: z.string(),
+      phone: z
+        .string({
+          required_error: err.phoneError,
+          invalid_type_error: "Phone number is not valid",
+        })
+        .min(12, { message: "Phone number should be 12 characters long" })
+        .max(12, { message: "Phone number should be 12 characters long" })
+        .regex(/^2507/, { message: "Phone number should start with '250 7'" }),
+      firstName: z
+        .string({
+          required_error: err.firstNameError,
+        })
+        .min(2, { message: err.firstNameError }),
+      lastName: z
+        .string({
+          required_error: err.lastNameError,
+        })
+        .min(2, { message: err.lastNameError }),
+      address: z
+        .string({
+          required_error: err.addressError,
+        })
+        .min(2, { message: err.addressError }),
       email: z
-        .string()
-        .min(1, { message: "Email address is required!" })
+        .string({
+          required_error: err.emailError,
+        })
+        .min(1, { message: err.emailError })
         .email({
           message: "Please provide a valid email!",
         }),
-      IDNumber: z.string(),
+      IDNumber: z
+        .string({
+          required_error: err.idNumberError,
+        })
+        .min(16, { message: "ID should be 16 digits long" })
+        .max(16, { message: "ID should be 16 digits long" })
+        .regex(/^119\d{13}$/, {
+          message: "ID should start with '119' and be 16 digits long",
+        }),
     })
     .required();
 
@@ -64,14 +94,14 @@ export default function IndividualApplication() {
     formState: { errors },
     control,
   } = useForm<FormData>({
-    // resolver: zodResolver(formSchema),
+    resolver: zodResolver(formSchema),
     mode: "all",
   });
 
   console.log("form errors --->", errors);
 
   const onSubmit = (data: FormData) => {
-    
+    console.log("data", data);
   };
 
   // TODO: fix validations
@@ -92,27 +122,25 @@ export default function IndividualApplication() {
                   justifyContent: "space-between",
                 }}
               >
-                <Form.Label className={formStyles.formLabel}>Phone:</Form.Label>
+                <label className={formStyles.formLabel}>Phone:</label>
               </div>
-              <Form.Control asChild>
-                <input
-                  className={formStyles.input}
-                  {...register("phone")}
-                  type="phone"
-                  required
-                />
-              </Form.Control>
+              <Controller
+                control={control}
+                rules={{
+                  required: true,
+                }}
+                render={({ field }) => (
+                  <Form.Control asChild>
+                    <input
+                      className={formStyles.input}
+                      type="phone"
+                      {...field}
+                    />
+                  </Form.Control>
+                )}
+                name="phone"
+              />
               <ErrorMessage message={errors.phone?.message} />
-              {/* <ErrorMessage
-                errors={errors}
-                name="multipleErrorInput"
-                render={({ messages }) =>
-                  messages &&
-                  Object.entries(messages).map(([type, message]) => (
-                    <p key={type}>{message}</p>
-                  ))
-                }
-              /> */}
             </Form.Field>
             <Form.Field
               className={cx(formStyles.formField, styles.formField)}
@@ -123,14 +151,22 @@ export default function IndividualApplication() {
                   First Name:
                 </Form.Label>
               </div>
-              <Form.Control asChild>
-                <input
-                  className={formStyles.input}
-                  {...register("firstName")}
-                  type="firstName"
-                  required
-                />
-              </Form.Control>
+              <Controller
+                control={control}
+                name="firstName"
+                rules={{
+                  required: true,
+                }}
+                render={({ field }) => (
+                  <Form.Control asChild>
+                    <input
+                      className={formStyles.input}
+                      type="text"
+                      {...field}
+                    />
+                  </Form.Control>
+                )}
+              />
               <ErrorMessage message={errors.firstName?.message} />
             </Form.Field>
             <Form.Field
@@ -142,14 +178,22 @@ export default function IndividualApplication() {
                   Last Name:
                 </Form.Label>
               </div>
-              <Form.Control asChild>
-                <input
-                  className={formStyles.input}
-                  type="text"
-                  {...register("lastName")}
-                  required
-                />
-              </Form.Control>
+              <Controller
+                control={control}
+                name="lastName"
+                rules={{
+                  required: true,
+                }}
+                render={({ field }) => (
+                  <Form.Control asChild>
+                    <input
+                      className={formStyles.input}
+                      type="text"
+                      {...field}
+                    />
+                  </Form.Control>
+                )}
+              />
               <ErrorMessage message={errors.lastName?.message} />
             </Form.Field>
             <Form.Field
@@ -161,14 +205,22 @@ export default function IndividualApplication() {
                   Address:
                 </Form.Label>
               </div>
-              <Form.Control asChild>
-                <input
-                  className={formStyles.input}
-                  {...register("address")}
-                  type="text"
-                  required
-                />
-              </Form.Control>
+              <Controller
+                control={control}
+                name="address"
+                rules={{
+                  required: true,
+                }}
+                render={({ field }) => (
+                  <Form.Control asChild>
+                    <input
+                      className={formStyles.input}
+                      type="text"
+                      {...field}
+                    />
+                  </Form.Control>
+                )}
+              />
               <ErrorMessage message={errors.address?.message} />
             </Form.Field>
             <Form.Field
@@ -178,14 +230,22 @@ export default function IndividualApplication() {
               <div className={formStyles.labelContainer}>
                 <Form.Label className={formStyles.formLabel}>Email:</Form.Label>
               </div>
-              <Form.Control asChild>
-                <input
-                  className={formStyles.input}
-                  {...register("email")}
-                  type="email"
-                  required
-                />
-              </Form.Control>
+              <Controller
+                control={control}
+                name="email"
+                rules={{
+                  required: true,
+                }}
+                render={({ field }) => (
+                  <Form.Control asChild>
+                    <input
+                      className={formStyles.input}
+                      type="email"
+                      {...field}
+                    />
+                  </Form.Control>
+                )}
+              />
               <ErrorMessage message={errors.email?.message} />
             </Form.Field>
             <Form.Field
@@ -197,13 +257,22 @@ export default function IndividualApplication() {
                   ID Number:
                 </Form.Label>
               </div>
-              <Form.Control asChild>
-                <input
-                  className={formStyles.input}
-                  {...register("IDNumber")}
-                  type="text"
-                />
-              </Form.Control>
+              <Controller
+                control={control}
+                name="IDNumber"
+                rules={{
+                  required: true,
+                }}
+                render={({ field }) => (
+                  <Form.Control asChild>
+                    <input
+                      className={formStyles.input}
+                      type="text"
+                      {...field}
+                    />
+                  </Form.Control>
+                )}
+              />
               <ErrorMessage message={errors.IDNumber?.message} />
             </Form.Field>
           </div>
