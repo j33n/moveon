@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import cx from "classnames";
 import * as Form from "@radix-ui/react-form";
 import * as z from "zod";
@@ -9,7 +9,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as styles from "./styles.css";
 import * as formStyles from "../../components/form/formStyles.css";
 import { Button, Card } from "@radix-ui/themes";
-import { useForm, Controller } from "react-hook-form";
+import {
+  useForm,
+  Controller,
+  FieldError,
+} from "react-hook-form";
+import Loader from "@/app/components/loader";
+
+import XIcon from "../../assets/x.svg";
+import CheckIcon from "../../assets/check.svg";
+import Image from "next/image";
 
 export const ErrorMessage = ({ message }: { message: any }) => {
   if (!message) {
@@ -40,8 +49,9 @@ const err = {
 };
 
 export default function IndividualApplication() {
-  const onPhoneFillComplete = () => {};
-  const validatePhoneNumber = () => {};
+  const [phoneValidity, setPhoneValidity] = useState(false);
+  const [phoneInvalid, setPhoneInvalid] = useState(false);
+  const [phoneError, setPhoneError] = useState<FieldError | undefined>();
 
   const formSchema = z
     .object({
@@ -52,7 +62,7 @@ export default function IndividualApplication() {
         })
         .min(12, { message: "Phone number should be 12 characters long" })
         .max(12, { message: "Phone number should be 12 characters long" })
-        .regex(/^2507/, { message: "Phone number should start with '250 7'" }),
+        .regex(/^2507/, { message: "Phone number should start with '2507'" }),
       firstName: z
         .string({
           required_error: err.firstNameError,
@@ -90,6 +100,7 @@ export default function IndividualApplication() {
 
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
     control,
@@ -98,47 +109,73 @@ export default function IndividualApplication() {
     mode: "all",
   });
 
-  console.log("form errors --->", errors);
+  const watchedPhone = watch("phone");
+
+  const handlePhoneChange = (val: any, invalid: boolean) => {
+    if (phoneValidity) {
+      // getUserByPhone();
+    }
+  };
+
+  useEffect(() => {
+    setPhoneValidity(!!watchedPhone && !phoneInvalid && !phoneError);
+  }, [watchedPhone, phoneInvalid, phoneError]);
 
   const onSubmit = (data: FormData) => {
     console.log("data", data);
   };
 
-  // TODO: fix validations
+  const handleSetPhoneValidity = (e) => {
+    console.log("e.target.value", e.target.value);
+  };
 
   return (
     <Card className={styles.container}>
+      {/* {fetchingUserDetails && <Loader />} */}
       <Form.Root className={formStyles.formRoot} asChild>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.formContainer}>
             <Form.Field
               className={cx(formStyles.formField, styles.formField)}
               name="phone"
+              style={{ position: "relative" }}
             >
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "baseline",
-                  justifyContent: "space-between",
-                }}
-              >
-                <label className={formStyles.formLabel}>Phone:</label>
+              <div className={formStyles.labelContainer}>
+                <Form.Label className={formStyles.formLabel}>Phone:</Form.Label>
               </div>
               <Controller
                 control={control}
                 rules={{
                   required: true,
                 }}
-                render={({ field }) => (
-                  <Form.Control asChild>
-                    <input
-                      className={formStyles.input}
-                      type="phone"
-                      {...field}
-                    />
-                  </Form.Control>
-                )}
                 name="phone"
+                render={({ field, fieldState: { invalid, error } }) => {
+                  setPhoneInvalid(invalid);
+                  setPhoneError(error);
+                  return (
+                    <Form.Control asChild style={{ position: "relative" }}>
+                      <>
+                        <input
+                          className={formStyles.input}
+                          type="phone"
+                          {...field}
+                        />
+                        <div className={formStyles.validity}>
+                          {phoneValidity ? (
+                            <Image
+                              src={CheckIcon}
+                              alt=""
+                              width="24"
+                              height="24"
+                            />
+                          ) : (
+                            <Image src={XIcon} alt="" width="24" height="24" />
+                          )}
+                        </div>
+                      </>
+                    </Form.Control>
+                  );
+                }}
               />
               <ErrorMessage message={errors.phone?.message} />
             </Form.Field>

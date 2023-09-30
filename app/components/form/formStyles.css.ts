@@ -48,4 +48,11 @@ export const labelContainer = style({
   display: "flex",
   alignItems: "baseline",
   justifyContent: "space-between",
+  height: "2rem"
+});
+
+export const validity = style({
+  position: "absolute",
+  top: "44px",
+  right: "0.5rem"
 });

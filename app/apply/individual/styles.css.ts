@@ -9,9 +9,22 @@ export const formContainer = style({
   columnGap: "1rem",
   width: "100%",
   flexWrap: "wrap",
-  margin: "auto"
+  margin: "auto",
+
+  "@media": {
+    "only screen and (max-width: 48em)": {
+      flexDirection: "column",
+      width: "100%",
+    },
+  },
 });
 
 export const formField = style({
   width: "calc(50% - 1rem)",
+
+  "@media": {
+    "only screen and (max-width: 48em)": {
+      width: "100%",
+    },
+  },
 });
