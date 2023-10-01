@@ -14,6 +14,18 @@ export type Application = {
   businessId: string;
 };
 
+export type UserType = {
+  id: string,
+  firstName: string,
+  lastName: string,
+  phone: string,
+  address: string,
+  email: string,
+  IDNumber: string,
+  businesses: string[],
+  applications: string[],
+};
+
 export type ApplicationList = Application[];
 
 // USERS
@@ -21,6 +33,15 @@ export async function getUsers() {
   return {
     message: "OK",
     data: users,
+  };
+}
+
+export async function getUserByPhone(phone: string) {
+  const user = users.find((usr) => usr.phone === phone);
+
+  return {
+    message: "OK",
+    data: user,
   };
 }
 

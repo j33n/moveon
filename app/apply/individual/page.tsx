@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import cx from "classnames";
 import * as Form from "@radix-ui/react-form";
 import * as z from "zod";
@@ -9,16 +9,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as styles from "./styles.css";
 import * as formStyles from "../../components/form/formStyles.css";
 import { Button, Card } from "@radix-ui/themes";
-import {
-  useForm,
-  Controller,
-  FieldError,
-} from "react-hook-form";
+import { useForm, Controller, FieldError } from "react-hook-form";
 import Loader from "@/app/components/loader";
 
 import XIcon from "../../assets/x.svg";
 import CheckIcon from "../../assets/check.svg";
 import Image from "next/image";
+import { UserType, getUserByPhone } from "@/app/utils/methods";
 
 export const ErrorMessage = ({ message }: { message: any }) => {
   if (!message) {
@@ -52,6 +49,9 @@ export default function IndividualApplication() {
   const [phoneValidity, setPhoneValidity] = useState(false);
   const [phoneInvalid, setPhoneInvalid] = useState(false);
   const [phoneError, setPhoneError] = useState<FieldError | undefined>();
+  const [userDataLoading, setUserDataLoading] = useState<boolean>(false);
+
+  const [user, setUser] = useState<UserType>();
 
   const formSchema = z
     .object({
@@ -99,11 +99,12 @@ export default function IndividualApplication() {
     .required();
 
   const {
-    register,
     watch,
     handleSubmit,
     formState: { errors },
     control,
+    setValue,
+    reset,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
     mode: "all",
@@ -111,11 +112,35 @@ export default function IndividualApplication() {
 
   const watchedPhone = watch("phone");
 
-  const handlePhoneChange = (val: any, invalid: boolean) => {
+  useEffect(() => {
     if (phoneValidity) {
-      // getUserByPhone();
+      const getUser = async () => {
+        setUserDataLoading(true);
+        const user = await getUserByPhone(watchedPhone);
+
+        setTimeout(() => {
+          setUser(user.data);
+          if (user.data) {
+            setValue("phone", user.data.phone);
+            setValue("firstName", user.data.firstName);
+            setValue("lastName", user.data.lastName);
+            setValue("address", user.data.address);
+            setValue("email", user.data.email);
+            setValue("IDNumber", user.data.IDNumber);
+            setUserDataLoading(false);
+          } else {
+            // reset({
+            //   phone: ""
+            // });
+            setUserDataLoading(false);
+          }
+        }, 2000);
+        return user.data;
+      };
+
+      getUser();
     }
-  };
+  }, [phoneValidity, setValue, watchedPhone]);
 
   useEffect(() => {
     setPhoneValidity(!!watchedPhone && !phoneInvalid && !phoneError);
@@ -131,7 +156,7 @@ export default function IndividualApplication() {
 
   return (
     <Card className={styles.container}>
-      {/* {fetchingUserDetails && <Loader />} */}
+      {phoneValidity && userDataLoading && <Loader />}
       <Form.Root className={formStyles.formRoot} asChild>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className={styles.formContainer}>
