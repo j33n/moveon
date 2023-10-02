@@ -1,66 +1,106 @@
 [
-    {
-        "id": "1",
-        "name": "Kigali Bistro",
-        "description": "A cozy eatery offering traditional Rwandan dishes with a modern twist.",
-        "address": "KN 23 St 21",
-        "momoCode": "123456",
-        "phone": "250720312345",
-        "TIN": "567812345678",
-        "regNumber": "REG001",
-        "category": "Restaurants and Cafes",
-        "documents": [
-            "business_license.pdf",
-            "food_safety_certificate.pdf"
-        ],
-        "ownerId": "1"
-    },
-    {
-        "id": "2",
-        "name": "Uwimana Fashion Store",
-        "description": "Trendsetting apparel for men and women, showcasing local designs.",
-        "address": "KG 12 St 45",
-        "momoCode": "234567",
-        "phone": "250720312346",
-        "TIN": "567812345679",
-        "regNumber": "REG002",
-        "category": "Fashion",
-        "documents": [
-            "business_license.pdf",
-            "fashion_awards_recognition.pdf"
-        ],
-        "ownerId": "2"
-    },
-    {
-        "id": "3",
-        "name": "Mugisha's Gym",
-        "description": "A health and fitness center promoting wellness through tailored exercise regimes.",
-        "address": "KK 45 St 34",
-        "momoCode": "345678",
-        "phone": "250720312347",
-        "TIN": "567812345680",
-        "regNumber": "REG003",
-        "category": "Health and Wellness",
-        "documents": [
-            "business_license.pdf",
-            "trainer_certifications.pdf"
-        ],
-        "ownerId": "3"
-    },
-    {
-        "id": "4",
-        "name": "Ingabire Art Gallery",
-        "description": "A hub for contemporary and traditional Rwandan art pieces.",
-        "address": "KN 56 St 78",
-        "momoCode": "456789",
-        "phone": "250720312348",
-        "TIN": "567812345681",
-        "regNumber": "REG004",
-        "category": "Arts and Entertainment",
-        "documents": [
-            "business_license.pdf",
-            "art_authenticity_certs.pdf"
-        ],
-        "ownerId": "4"
-    }
+  {
+    "id": "1",
+    "businessName": "Kigali Bistro",
+    "description": "A cozy eatery offering traditional Rwandan dishes with a modern twist.",
+    "address": "KN 23 St 21",
+    "momoCode": "123456",
+    "TIN": "567812345678",
+    "regNumber": "REG001",
+    "category": "Restaurants and Cafes",
+    "documents": [
+      "business_license.pdf",
+      "food_safety_certificate.pdf"
+    ],
+    "ownerId": "1"
+  },
+  {
+    "id": "2",
+    "businessName": "Uwimana Fashion Store",
+    "description": "Trendsetting apparel for men and women, showcasing local designs.",
+    "address": "KG 12 St 45",
+    "momoCode": "234567",
+    "TIN": "567812345679",
+    "regNumber": "REG002",
+    "category": "Fashion",
+    "documents": [
+      "business_license.pdf",
+      "fashion_awards_recognition.pdf"
+    ],
+    "ownerId": "2"
+  },
+  {
+    "id": "3",
+    "businessName": "Mugisha's Gym",
+    "description": "A health and fitness center promoting wellness through tailored exercise regimes.",
+    "address": "KK 45 St 34",
+    "momoCode": "345678",
+    "TIN": "567812345680",
+    "regNumber": "REG003",
+    "category": "Health and Wellness",
+    "documents": [
+      "business_license.pdf",
+      "trainer_certifications.pdf"
+    ],
+    "ownerId": "3"
+  },
+  {
+    "id": "4",
+    "businessName": "Ingabire Art Gallery",
+    "description": "A hub for contemporary and traditional Rwandan art pieces.",
+    "address": "KN 56 St 78",
+    "momoCode": "456789",
+    "TIN": "567812345681",
+    "regNumber": "REG004",
+    "category": "Arts and Entertainment",
+    "documents": [
+      "business_license.pdf",
+      "art_authenticity_certs.pdf"
+    ],
+    "ownerId": "4"
+  },
+  {
+    "id": "5",
+    "businessName": "Ignatius Mcgee",
+    "description": "Et pariatur Perfere",
+    "address": "Eu cillum et volupta",
+    "tin": "713",
+    "regNumber": "985",
+    "category": "Rerum doloremque ess",
+    "documents": [],
+    "ownerId": ""
+  },
+  {
+    "id": "6",
+    "businessName": "Hu Gay",
+    "description": "Fugiat quam culpa f",
+    "address": "Ut id illo pariatur",
+    "tin": "440",
+    "regNumber": "511",
+    "category": "Aliqua Sint dolore",
+    "documents": [],
+    "ownerId": ""
+  },
+  {
+    "id": "7",
+    "businessName": "Kaye Marquez",
+    "description": "Excepturi voluptatem",
+    "address": "Sit est et quos aute",
+    "tin": "373",
+    "regNumber": "416",
+    "category": "Id proident aliquam",
+    "documents": [],
+    "ownerId": ""
+  },
+  {
+    "id": "8",
+    "businessName": "Lorem",
+    "description": "Ipsum",
+    "address": "kg 688 ave 44",
+    "tin": "123234456",
+    "regNumber": "12341234123",
+    "category": "Lorems",
+    "documents": [],
+    "ownerId": ""
+  }
 ]

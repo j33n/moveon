@@ -28,3 +28,15 @@ export const formField = style({
     },
   },
 });
+
+export const tabsTrigger = style({
+  selectors: {
+    '&[data-state="active"]::before': {
+      background: "#f4913e",
+    },
+  },
+});
+
+export const tabsHeadingText = style({
+  fontWeight: 700,
+});

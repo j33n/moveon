@@ -15,15 +15,28 @@ export type Application = {
 };
 
 export type UserType = {
-  id: string,
-  firstName: string,
-  lastName: string,
-  phone: string,
-  address: string,
-  email: string,
-  IDNumber: string,
-  businesses: string[],
-  applications: string[],
+  id: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
+  address: string;
+  email: string;
+  IDNumber: string;
+  businesses: string[];
+  applications: string[];
+};
+
+export type BusinessType = {
+  id: string;
+  businessName: string;
+  description: string;
+  address: string;
+  momoCode: string;
+  TIN: string;
+  regNumber: string;
+  category: string;
+  documents: string[];
+  ownerId: string;
 };
 
 export type ApplicationList = Application[];
@@ -43,6 +56,32 @@ export async function getUserByPhone(phone: string) {
     message: "OK",
     data: user,
   };
+}
+
+function generateRandomMomoCode(length = 6) {
+  let result = '';
+  const characters = '0123456789';
+  const charactersLength = characters.length;
+  
+  for (let i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  
+  return result;
+}
+
+export const getUniqueMomoCode = () => {
+  let unique = false;
+  let momoCode = '';
+  
+  while (!unique) {
+    momoCode = generateRandomMomoCode();
+    if (!businesses.some(business => business.momoCode === momoCode)) {
+      unique = true;
+    }
+  }
+  
+  return momoCode;
 }
 
 // BUSINESSES
