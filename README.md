@@ -33,6 +33,14 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### Existing phone numbers to test with
+
+- ```250780312345```
+- ```250720312346```
+- ```250781312347```
+
+You can find our placeholder storage in [./app/data](./app/data)
+
 ## Improvements
 
 ### Storage
