@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 
-import { ApplicationList, getApplications } from "../utils/methods";
-import { Card } from "@radix-ui/themes";
+import { BusinessType, getApplications } from "../utils/methods";
+import { Card, Code, Flex, Heading, Text } from "@radix-ui/themes";
 
 const ApplicationsPage = () => {
-  const [userApplications, setUserApplications] = useState<ApplicationList>([]);
+  const [userApplications, setUserApplications] = useState<any>([]);
 
   useEffect(() => {
     const applications = async () => {
@@ -19,14 +19,29 @@ const ApplicationsPage = () => {
   }, []);
 
   return (
-    <Card style={{ padding: "1rem", marginTop: "1rem" }}>
+    <Card style={{ padding: "1rem", marginTop: "1rem", display: "flex" }}>
       {userApplications &&
         userApplications.length > 0 &&
-        userApplications.map((application) => {
+        userApplications.map((application: BusinessType) => {
           return (
-            <div key={application.applicationId}>
-              {application.businessName}
-            </div>
+            <Card key={application.id} style={{ marginTop: "1rem" }}>
+              <Heading size="2">{application.businessName}</Heading>
+              <Text color="gray">{application.description}</Text>
+              {application.momoCode ? (
+                <Flex mt="4">
+                  <Text mx="4">Code:</Text>
+                  <Code color="yellow" weight="bold">
+                    {application.momoCode}
+                  </Code>
+                </Flex>
+              ) : (
+                <Flex mt="4">
+                  <Text color="gray" weight="bold">
+                    Momo code not approved yet!
+                  </Text>
+                </Flex>
+              )}
+            </Card>
           );
         })}
     </Card>

@@ -96,7 +96,7 @@ export async function getBusinesses() {
 export async function getApplications() {
   return {
     message: "OK",
-    data: applications,
+    data: businesses,
   };
 }
 

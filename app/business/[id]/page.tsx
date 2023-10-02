@@ -2,7 +2,7 @@
 
 import businesses from "../../data/businesses.json";
 
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 import { Card, Heading, Text } from "@radix-ui/themes";
 import { getUniqueMomoCode } from "@/app/utils/methods";
 

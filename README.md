@@ -11,16 +11,51 @@ MoveOn allows you to onboard Mobile Money merchants with ease!
 
 ## Getting Started
 
-Running the development server:
+### Clone the repository
+```bash
+git clone https://github.com/j33n/moveon.git
+```
+
+### Install dependencies
+
+Ensure you have switched in the directory with project files, then:
+```bash
+npm install
+```
+
+### Running the development server:
 
 ```bash
 npm run dev
 ```
-## Starting the Application
+
+### Starting the Application
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Improvements
+
+### Storage
+
+This project uses JSON to store objects to store data, this means that there are limitations to what you can do, so to deploy in a production environment ensure you switch to a database storage first.
+
+Find this [Prisma, NextJS database setup guide](https://www.prisma.io/nextjs) for reference
+
+### Code persistance
+
+Some of the data such as a Momo code is not being persisted after being generated, switching to a database would allow you to perform READ/WRITE functionalities with ease thus persisting the code as well.
+
+### UI/UX improvement
+
+The UI/UX is decent but there's a lot of room for improvement.
+
+### Approval process
+
+In the real world this project would need integration with a telecom company since ideally a code has to be approved by system administrators before it can be operational.
+
+### Testing
+
+This project would need at least minimal integration testing to boost the developer's confidence core functionalities would work in the real world.
 
 ## Important Licensing Note
 

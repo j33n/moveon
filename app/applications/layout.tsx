@@ -6,7 +6,7 @@ import { Heading } from "@radix-ui/themes";
 
 const ApplicationsPageLayout = ({ children }: { children: ReactNode }) => (
   <div>
-    <Heading>View Applications</Heading>
+    <Heading>Business Applications</Heading>
     <div>{children}</div>
   </div>
 );

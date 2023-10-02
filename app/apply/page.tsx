@@ -25,33 +25,39 @@ const ApplyPage = () => (
       </Link>
     </Card>
     <Card size="1" className={styles.cardContent}>
-      <Link href="/apply/business" className={styles.cardLink}>
+      <Link href="#" className={styles.cardLink}>
         <Flex gap="3" align="center">
           <Avatar size="3" radius="full" fallback="SB" color="orange" />
           <Box>
-            <Text as="div" size="4" weight="bold" color="blue">
+            <Text as="div" size="4" weight="bold" color="gray">
               Small Businesses
             </Text>
             <Text as="div" size="2" color="gray">
               This application allows small businesses to get a TILL Number to
               use accepting Mobile Money payments.
             </Text>
+            <Text as="div" size="3" color="gray" mt="2" weight="bold">
+              Coming soon
+            </Text>
           </Box>
         </Flex>
       </Link>
     </Card>
     <Card size="1" className={styles.cardContent}>
-      <Link href="/apply/institution" className={styles.cardLink}>
+      <Link href="#" className={styles.cardLink}>
         <Flex gap="3" align="center">
           <Avatar size="3" radius="full" fallback="LI" color="orange" />
           <Box>
-            <Text as="div" size="4" weight="bold" color="blue">
+            <Text as="div" size="4" weight="bold" color="gray">
               Large Institutions
             </Text>
             <Text as="div" size="2" color="gray">
               This application allows large institutions to get a code to be
               used accepting transactions, it allows institutions to accept
               large sums of money.
+            </Text>
+            <Text as="div" size="3" color="gray" mt="2" weight="bold">
+              Coming soon
             </Text>
           </Box>
         </Flex>
