@@ -48,7 +48,7 @@ export default function IndividualApplication() {
             <Tabs.Trigger
               value="business"
               className={styles.tabsTrigger}
-              // disabled={!userDetailsAdded}
+              disabled={!userDetailsAdded}
             >
               <Text className={styles.tabsHeadingText}>Business Details</Text>
             </Tabs.Trigger>
